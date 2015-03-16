@@ -68,3 +68,72 @@ header h1 {
 #tablo tr td:first-child {
 	border-right: 1px solid;
 }
+
+#sendButton button{
+	width: 100%;
+    height: 100%
+}
+
+#messages, #writeMessage{
+	width: 70%;
+	float: left;
+	margin-left: 5%;
+}
+#users, #sendButton  {
+	font-size: 1.2em;
+	margin-left: 80%;
+	width: 15%;
+	max-width: 10em;
+	text-align: center;
+	min-width: 7em;
+}
+#writeMessage {
+	margin-top: 2em;
+	height: 10%;
+	resize: none;
+}
+#users, #messages{
+	overflow: auto;
+	margin-top: 5%;
+	min-height: 400px;
+	max-height: 60%;
+}
+
+#users, #messages {
+	background: none repeat scroll 0% 0% #FFF;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+#messages strong{
+	float: left;
+	display: inline-block;
+	width: 80px;
+}
+.myMessage {
+	color: brown;
+}
+#lnav, #rnav {
+	min-height: 400px;
+	max-height: 60%;
+}
+#lnav{
+	width: 50%;
+	float: left;
+}
+#rnav {
+	margin-left: 50%;
+}
+
+#sendButton{
+	height: 10%;
+	margin-top: 1.5em;
+	margin-left: 80%;
+	vertical-align: middle;
+}
+#sendButton button {
+	color: #900;
+  	border: 1px solid #900;
+  	font-weight: bold;
+  	border-radius: 10px;
+}
