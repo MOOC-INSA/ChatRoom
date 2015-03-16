@@ -24,12 +24,17 @@ class App
 		//if a second parameter is given
 		if(isset($url[1]))
 		{
-			//check if it fit a method inside the controller previously created
+			//check if it fit a method inside the controller previously
 			if(method_exists($this->controller, $url[1]))
 			{
-				echo 'OK';
+				$this->method = $url[1];
+				unset($url[1]);
 			}
 		}
+		//checks if there is param gave in url
+		$this->params = $url ? array_values($url) : [];
+		//calls the chosen method of the chosen controller w. the parameters given 
+		call_user_func_array([$this->controller, $this->method], array($this->params));
 	}
 	//cleans and explodes the url w. "/"
 	//The return is an array w. all the arguments 
