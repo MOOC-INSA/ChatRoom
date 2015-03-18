@@ -2,9 +2,18 @@
 class HomeController extends Controller
 {
 
-	public function index($params = [])
+	public function index()
 	{
-		echo 'You are currently in the index method of the Home Controller <br> Params : ';
-		print_r($params);
+		$this->view('Home');
 	}
+	public function createRoom(){
+
+	}
+	public function joinRoom(){
+
+	}
+	public function getRooms(){
+
+	}
+
 }

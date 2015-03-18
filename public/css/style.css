@@ -31,6 +31,8 @@ header h1 {
 #rooms a{
 	text-decoration: none;
 	color: black;
+	width: 100%;
+	height: 100%;
 }
 #rooms p{
 	cursor: pointer;

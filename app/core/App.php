@@ -3,9 +3,9 @@
 class App
 {
 	//defaults values for controller, method & params
-	protected $controller = 'HomeController';
-	protected $method = 'index';
-	protected $params = [];
+	private $controller = 'HomeController';
+	private $method = 'index';
+	private $params = [];
 	//function called whenever an instance of App is create
 	public function __construct()
 	{
