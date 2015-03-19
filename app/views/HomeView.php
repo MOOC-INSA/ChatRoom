@@ -6,6 +6,7 @@
 		<title>Accueil</title>
 	</head>
 	<body>
+		<?php var_dump($data)?>
 		<header>
 			<h1>This is the Main View</h1>
 		</header>

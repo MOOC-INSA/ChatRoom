@@ -1,10 +1,10 @@
 <?php
-class VO
+class VO extends Serz
 {
-	private $_id;
+	private $id;
 	public function setId($id)
 	{
-		$this->_id = $id;
+		$this->id = $id;
 	}
 	public function getId()
 	{

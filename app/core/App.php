@@ -34,7 +34,7 @@ class App
 		//checks if there is param gave in url
 		$this->params = $url ? array_values($url) : [];
 		//calls the chosen method of the chosen controller w. the parameters given 
-		call_user_func_array([$this->controller, $this->method], array($this->params));
+		call_user_func_array([$this->controller, $this->method], $this->params);
 	}
 	//cleans and explodes the url w. "/"
 	//The return is an array w. all the arguments 

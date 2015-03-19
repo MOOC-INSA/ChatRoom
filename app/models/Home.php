@@ -1,15 +1,24 @@
 <?php
-class Home{
+class Home extends Serz{
 	private static $home;
-	private $rooms;
-	private function __construct(){
-
+	private static $rooms;
+	private function __construct()
+	{
+		Home::$rooms = array();
 	}
 
-	public function getInstance(){
-		if(!$this->home){
-			$this->home = new Home;
+	public static function getInstance(){
+		if(!Home::$home){
+			Home::$home = new Home;
 		}
-		return $this->home;
+		return Home::$home;
+	}
+	public static function addRoom($name, $admin){
+		$room = new Room($name, $admin);
+		array_push(Home::$rooms, $room);
+		var_dump(Home::$rooms);
+	}
+	public static function getRooms(){
+		return Home::$rooms;
 	}
 }
