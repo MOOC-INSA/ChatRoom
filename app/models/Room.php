@@ -1,25 +1,34 @@
 <?php
-class Room extends Serz{
-	private static $nmbRoom = 0;
-	private $name = array();
-	private $users = array();
-	private $messages ;
+class Room extends Persistable implements JsonAble{
+	private $roomname;
+	private $adminname;
+	private $userDAO;
 
-	public function __construct($name,$adminName){
-		Room::$nmbRoom++;
-		$this->name = $name;
-		$admin = new User($adminName, True, $this);
-		array_push($this->users, $admin);
-		$messages = [];
+	public function __construct($id = null,$roomname,$adminname){
+		if($id){
+			$this->setId($id);
+		}
+		$this->userDAO = new UserDAO();
+		$this->roomname = $roomname;
+		$this->adminname = $adminname;
+	}
+	public function getRoomname(){
+		return $this->roomname;
 	}
 
-	public function getName(){
-		return $this->name;
+	public function getAdminname(){
+		return $this->adminname;
 	}
-	public function getUsers(){
-		return $this->users;
+	public function toJson(){
+		return '{"roomname":"'.htmlspecialchars($this->roomname).'","adminname":"'.htmlspecialchars($this->adminname).'","count":'.htmlspecialchars($this->userDAO->countUsersInRoom($this->roomname)).'}';
 	}
-	public function getMessages(){
-		return $this->messages;
+	public static function roomArrayToJson($rooms){
+		$json = '{"rooms":[';
+		foreach ($rooms as $room) {
+			$json = $json.$room->toJson().',';
+		}
+		$json = substr($json, 0, strlen($json)-1);
+		$json = $json.']}';
+		return $json;
 	}
 }

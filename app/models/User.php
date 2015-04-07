@@ -1,21 +1,32 @@
 <?php
-class User extends Serz{
-	private static $nmbUser = 0;
-	private $isAdmin;
-	private $name;
-	private $room;
+class User extends Persistable implements JsonAble{
+	private $username;
+	private $roomname;
 
-	public function __construct($name, $isAdmin, $room){
-
+	public function __construct($id = null, $username, $roomname){
+		if($id){
+			$this->setId($id);
+		}
+		$this->username = $username;
+		$this->roomname = $roomname;
+		return $this;
 	}
-	public function getIsAdmin(){
-		return $this->isAdmin;
+	public function getUsername(){
+		return $this->username;
 	}
-	public function getName(){
-		return $this->name;
+	public function getRoomname(){
+		return $this->roomname;
 	}
-	public function getRoom(){
-		return $this->room;
+	public function toJson(){
+		return '{"username":"'.htmlspecialchars($this->username).'","roomname":"'.htmlspecialchars($this->roomname).'"}';
 	}
-
+	public static function userArrayToJson($users){
+		$json = '{"users":[';
+		foreach ($users as $user){
+			$json = $json.$user->toJson().',';
+		}
+		$json = substr($json, 0, strlen($json)-1);
+		$json = $json.']}';
+		return $json;
+	}
 }

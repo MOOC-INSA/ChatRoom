@@ -89,7 +89,7 @@ header h1 {
 	text-align: center;
 	min-width: 7em;
 }
-#writeMessage {
+#writeMessage, #sendButton {
 	margin-top: 2em;
 	height: 10%;
 	resize: none;
@@ -107,11 +107,6 @@ header h1 {
 	border-radius: 5px;
 }
 
-#messages strong{
-	float: left;
-	display: inline-block;
-	width: 80px;
-}
 .myMessage {
 	color: brown;
 }
