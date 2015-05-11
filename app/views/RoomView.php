@@ -17,9 +17,7 @@
 
 
 		<header>
-			<form name="quitRoom" action="/Room/quitRoom" method="post">
-				<input id="quitButton" type="submit" value="Quit"/>
-			</form>
+			
 			<h1>This is the Room View</h1>
 			<input id="errorCode" type="hidden" value="<?php 
 				if(isset($data['code'])){
@@ -47,7 +45,9 @@
 		</div>
 		<textarea id="writeMessage"></textarea>
 			<button id="sendButton" type="submit">Send</button>
-
+			<form id="quitRoomForm" name="quitRoom" action="/Room/quitRoom" method="post">
+				<input id="quitButton" type="submit" value="Quit"/>
+			</form>
 		<footer></footer>
 	</body>
 </html>

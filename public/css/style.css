@@ -81,7 +81,7 @@ header h1 {
 	float: left;
 	margin-left: 5%;
 }
-#users, #sendButton  {
+#users, #sendButton, #quitRoomForm  {
 	font-size: 1.2em;
 	margin-left: 80%;
 	width: 15%;
@@ -122,15 +122,20 @@ header h1 {
 	margin-left: 50%;
 }
 
-#sendButton{
+#sendButton, #quitRoomForm{
 	height: 10%;
 	margin-top: 1.5em;
 	margin-left: 80%;
 	vertical-align: middle;
+	display: block;
 }
-#sendButton button {
+#sendButton button, #quitRoomForm button  {
 	color: #900;
   	border: 1px solid #900;
   	font-weight: bold;
   	border-radius: 10px;
+}
+#quitButton   {
+	height: 100%;
+	width: 100%;
 }
